@@ -1738,22 +1738,20 @@ const [soundOn, setSoundOn] = useState(false);
     
   <div className="dream-experience">
     <SplashCursor
-  SIM_RESOLUTION={128}
-  DYE_RESOLUTION={512}
-  CAPTURE_RESOLUTION={512}
-  PRESSURE_ITERATIONS={20}
-  DENSITY_DISSIPATION={0.5}
-  VELOCITY_DISSIPATION={0.4}
-  PRESSURE={0.05}
-  CURL={8}
-  SPLAT_RADIUS={0.75}
-  SPLAT_FORCE={15000}
-  SHADING={true}
-  COLOR_UPDATE_SPEED={5}
-  RAINBOW_MODE={false}
-  COLOR="#b9a0ff"
-  TRANSPARENT={true}
-/>
+      SIM_RESOLUTION={64}
+      DYE_RESOLUTION={512}
+      PRESSURE_ITERATIONS={12}
+      DENSITY_DISSIPATION={3.5}
+      VELOCITY_DISSIPATION={2}
+      PRESSURE={0.1}
+      CURL={3}
+      SPLAT_RADIUS={0.2}
+      SPLAT_FORCE={6000}
+      SHADING={true}
+      RAINBOW_MODE={false}
+      COLOR="#b9a7ff"
+      TRANSPARENT={true}
+    />
     <div className="scene-canvas">
       <div className="scroll-hint">
   <span className="scroll-hint-icon">↓</span>
