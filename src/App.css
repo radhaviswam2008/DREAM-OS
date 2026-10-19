@@ -1,0 +1,664 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #fff8ff;
+  background: #10152f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  scrollbar-color: #c6a4ec #17132e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  scrollbar-color: #c6a4ec #17132e;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  min-width: 320px;
+}
+
+body,
+button,
+a {
+  font-family: "DM Sans", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  color: inherit;
+}
+
+.dream-experience {
+  position: relative;
+  width: 100%;
+  min-height: 300vh;
+  isolation: isolate;
+  overflow-x: clip;
+  background: #10152f;
+}
+
+/* FIXED 3D SCENE */
+
+.scene-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  background: #10152f;
+}
+
+.scene-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.scene-vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 12, 34, 0.72) 0%,
+      rgba(15, 15, 43, 0.35) 43%,
+      rgba(15, 15, 43, 0.03) 75%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(14, 13, 39, 0.58),
+      transparent 25%,
+      transparent 75%,
+      rgba(14, 13, 39, 0.32)
+    );
+}
+
+/* HEADER */
+
+.dream-header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 30px 6.5%;
+  pointer-events: none;
+}
+
+.wordmark {
+  pointer-events: auto;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  white-space: nowrap;
+}
+
+.wordmark span {
+  color: #f4b8e9;
+  margin: 0 3px;
+}
+
+.header-note {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  color: rgba(255, 245, 255, 0.72);
+  text-align: right;
+}
+
+/* STORY LAYOUT */
+
+.story {
+  position: relative;
+  z-index: 2;
+}
+
+.story-section {
+  position: relative;
+  min-height: 140vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 6.5% 85px;
+  pointer-events: none;
+}
+
+.story-copy {
+  width: min(100%, 540px);
+  max-width: 540px;
+  margin: 0;
+  pointer-events: none;
+  animation: copy-arrive 1.2s ease both;
+}
+
+.opening-copy {
+  margin-top: 2vh;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Island: keep the text opposite the main visual */
+.island-copy {
+  margin-left: auto;
+  margin-right: 0%;
+  text-align: left;
+}
+
+.island-section {
+  min-height: 200vh;
+}
+
+
+/* Nursery: left side, leaving Pip visible */
+.world-copy {
+  width: min(100%, 440px);
+  max-width: 440px;
+  margin-right: auto;
+  text-align: left;
+}
+
+/* Typography */
+
+.eyebrow {
+  margin: 0 0 26px;
+  color: #f1c3ed;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  line-height: 1.8;
+}
+
+.eyebrow-star {
+  color: #ffe5a9;
+  margin-right: 7px;
+}
+
+.story-copy h1,
+.story-copy h2 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(42px, 5.2vw, 76px);
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+  text-wrap: balance;
+  text-shadow: 0 4px 32px rgba(19, 12, 55, 0.3);
+}
+
+.story-copy h2 {
+  font-size: clamp(38px, 4.8vw, 68px);
+}
+
+.story-copy h1 em,
+.story-copy h2 em {
+  color: #e9c5f5;
+  font-weight: 400;
+}
+
+.story-description {
+  max-width: 38ch;
+  margin: 24px 0 0;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255, 248, 255, 0.82);
+  text-wrap: pretty;
+}
+
+.discover-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 44px;
+  margin-top: 28px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  pointer-events: auto;
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.discover-link:hover {
+  color: #f5c5ee;
+  transform: translateY(3px);
+}
+
+.discover-icon {
+  display: grid;
+  flex: 0 0 36px;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 240, 255, 0.48);
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+/* SECTION CAPTIONS */
+
+.scene-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 6.5%;
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: 0.2em;
+  color: rgba(255, 247, 255, 0.65);
+}
+
+/* SCROLL PROGRESS */
+
+.scroll-progress {
+  position: fixed;
+  z-index: 12;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scroll-progress span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #8ce6ff, #d6a4ff, #ffc4e9);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: scroll-line linear both;
+  animation-timeline: scroll(root);
+}
+
+/* STORY ANIMATIONS */
+
+@keyframes copy-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-line {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* DREAM//OS — Dream Workshop */
+
+.workshop-section {
+  min-height: 200svh;
+  align-items: flex-start;
+  padding-top: 135px;
+  padding-bottom: 100px;
+}
+
+.workshop-copy {
+  width: min(100%, 520px);
+  margin-left: 5%;
+  text-align: left;
+  pointer-events: auto;
+}
+
+.workshop-copy .story-description + .story-description {
+  margin-top: 14px;
+}
+
+.workshop-project-list {
+  display: grid;
+  gap: 22px;
+  max-width: 440px;
+  margin-top: 32px;
+}
+
+.workshop-project {
+  padding: 0 0 16px;
+  border-bottom: 1px solid rgba(255, 240, 255, 0.22);
+  background: transparent;
+}
+
+.workshop-project-number {
+  display: block;
+  margin-bottom: 7px;
+  color: #f1c3ed;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.17em;
+}
+
+.workshop-project h3 {
+  margin: 0 0 6px;
+  color: #fff8ff;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.workshop-project p {
+  max-width: 38ch;
+  margin: 0;
+  color: rgba(255, 248, 255, 0.8);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.workshop-section .discover-link {
+  margin-top: 25px;
+  pointer-events: auto;
+}
+
+@media (max-width: 700px) {
+  .workshop-section {
+    min-height: 200svh;
+    padding: 115px 22px 75px;
+    align-items: flex-start;
+  }
+
+  .workshop-copy {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .workshop-copy h2 {
+    font-size: clamp(38px, 9vw, 52px);
+  }
+
+  .workshop-project-list {
+    gap: 18px;
+    margin-top: 26px;
+  }
+
+  .workshop-project h3 {
+    font-size: 21px;
+  }
+}
+.mood-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+   pointer-events: auto;
+  cursor: pointer;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(20, 24, 55, 0.65);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.mood-toggle:hover {
+  background: rgba(70, 75, 125, 0.85);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .mood-toggle {
+    top: 12px;
+    right: 12px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+}
+.mood-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 99999;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.scene-vignette {
+  pointer-events: none;
+}
+.secret-toggle {
+  position: fixed;
+  top: 76px;
+  right: 20px;
+  z-index: 99999;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 240, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(20, 24, 55, 0.75);
+  color: white;
+  cursor: pointer;
+}
+
+.pip-secret {
+  position: fixed;
+  top: 125px;
+  right: 20px;
+  z-index: 99999;
+  width: min(300px, calc(100vw - 40px));
+  padding: 18px;
+  border: 1px solid rgba(255, 230, 255, 0.35);
+  border-radius: 16px;
+  background: rgba(22, 18, 53, 0.9);
+  color: #fff4ff;
+  line-height: 1.7;
+  backdrop-filter: blur(12px);
+} 
+
+.sound-toggle {
+  position: fixed;
+  top: 132px;
+  right: 20px;
+  z-index: 99999;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 240, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(20, 24, 55, 0.75);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 600px) {
+  .sound-toggle {
+    top: 174px;
+    right: 12px;
+    font-size: 12px;
+  }
+}
+
+/* Improve story text readability without cards */
+.story-copy {
+  max-width: 620px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.story-copy .eyebrow {
+  color: #ffe0fa;
+  text-shadow: 0 2px 8px rgba(20, 12, 45, 0.9);
+}
+
+.story-copy h1,
+.story-copy h2 {
+  color: #ffffff;
+  text-shadow:
+    0 2px 5px rgba(15, 10, 40, 0.9),
+    0 5px 20px rgba(15, 10, 40, 0.55);
+}
+
+.story-copy h1 em,
+.story-copy h2 em {
+  color: #ffe0fa;
+}
+
+.story-copy .story-description {
+  color: #ffffff;
+  line-height: 1.8;
+  text-shadow: 0 2px 7px rgba(15, 10, 40, 0.95);
+}
+
+.story-copy .discover-link {
+  color: #ffffff;
+  text-shadow: 0 2px 6px rgba(15, 10, 40, 0.8);
+}
+
+
+
+.dream-destinations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.dream-destinations button {
+  padding: 12px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(20, 20, 55, 0.35);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.dream-destinations button:hover,
+.dream-destinations button:focus-visible {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+#delivery-message {
+  flex-basis: 100%;
+  color: #ffe0fa;
+  line-height: 1.6;
+}
+
+.site-credits {
+  position: relative;
+  z-index: 3;
+  padding: 36px 6.5%;
+  color: #e9e4ff;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Magical click splash */
+.dream-splash-particle {
+  position: fixed;
+  z-index: 100000;
+  pointer-events: none;
+  user-select: none;
+  font-size: 18px;
+  line-height: 1;
+  text-shadow: 0 0 12px currentColor;
+  animation: dreamSplashBurst 700ms ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes dreamSplashBurst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+  }
+
+  45% {
+    opacity: 1;
+    transform:
+      translate(
+        calc(-50% + var(--x) * 0.65),
+        calc(-50% + var(--y) * 0.65)
+      )
+      scale(1.1)
+      rotate(90deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        calc(-50% + var(--x)),
+        calc(-50% + var(--y))
+      )
+      scale(0.1)
+      rotate(180deg);
+  }
+}
+.scroll-hint {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9998;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 17px;
+  border: 1px solid rgba(225, 218, 255, 0.2);
+  border-radius: 30px;
+  background: rgba(15, 18, 45, 0.55);
+  backdrop-filter: blur(12px);
+  color: rgba(240, 235, 255, 0.85);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  animation: scroll-hint-float 2s ease-in-out infinite;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.scroll-hint-icon {
+  font-size: 17px;
+  color: #d8c8ff;
+}
+
+@keyframes scroll-hint-float {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+@media (max-width: 600px) {
+  .scroll-hint {
+    bottom: 18px;
+    font-size: 10px;
+    padding: 9px 13px;
+  }
+}
